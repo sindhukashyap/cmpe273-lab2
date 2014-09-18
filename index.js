@@ -66,10 +66,18 @@ function put(request, response)
 	
 	var cookies = request.cookies;
 	console.log(cookies);
-	if ('session_id' in cookies) 
+	var sid = cookies['session_id'];
+	console.log("Put "+sid);
+	if ( login.isLoggedIn(sid) ) 
 	{
-		var newSessionId = cookies['session_id'];
+		var newSessionId = login.login(login.sessionMap[sid].name,login.sessionMap[sid].email);
+			
 	}
+	else
+	{
+		response.end("Invalid session_id! Please login again\n");
+	}
+
 	response.setHeader('Set-Cookie','seesion_id =' + newSessionId);
 	response.setHeader("Content-Type", "text/html");
 	response.end(login.hello(newSessionId));
