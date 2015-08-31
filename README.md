@@ -1,7 +1,7 @@
 cmpe273-lab2
 ============
 
-Node.JS with [Connect]
+Simple cookie-based authentication application. using Node.JS with [Connect]
 
 ### To Install Dependencies ###
 
