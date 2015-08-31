@@ -42,8 +42,9 @@ Login.prototype.login = function(_name, _email) {
  */ 
 Login.prototype.logout = function(sessionId) {
 	console.log('logout::' + sessionId);
+	delete this.sessionMap[sessionId];
    /*
-	* TODO: Remove the given sessionId from the sessionMap
+	*  Remove the given sessionId from the sessionMap
 	*/
 };
 
